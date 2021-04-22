@@ -1,6 +1,7 @@
 package com.codetest.rulesengine.domain;
 
 import com.codetest.rulesengine.application.CommissionPaymentImpl;
+import com.codetest.rulesengine.application.EmailServiceImpl;
 import com.codetest.rulesengine.application.MembershipServiceImpl;
 import com.codetest.rulesengine.application.PackingServiceImpl;
 import com.codetest.rulesengine.application.payment.MembershipPaymentService;
@@ -18,7 +19,7 @@ public class PaymentFactory {
                 return new PhysicalPaymentService(new PackingServiceImpl(), new CommissionPaymentImpl());
             case ACTIVE_MEMBERSHIP:
             case UPGRADE_MEMBERSHIP:
-                return new MembershipPaymentService(new MembershipServiceImpl());
+                return new MembershipPaymentService(new MembershipServiceImpl(), new EmailServiceImpl());
             case VIDEO:
                 return new VideoPaymentService(new PackingServiceImpl());
             default:

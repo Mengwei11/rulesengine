@@ -1,6 +1,7 @@
 package com.codetest.rulesengine.application.payment;
 
 import com.codetest.rulesengine.domain.membership.MembershipService;
+import com.codetest.rulesengine.domain.notification.NotificationService;
 import com.codetest.rulesengine.domain.product.Product;
 import com.codetest.rulesengine.domain.product.ProductType;
 import org.junit.jupiter.api.Test;
@@ -10,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 
@@ -18,6 +20,8 @@ public class MembershipPaymentServiceTest {
 
     @Mock
     private MembershipService membershipService;
+    @Mock
+    private NotificationService notificationService;
 
     @InjectMocks
     private MembershipPaymentService membershipPaymentService;
@@ -33,6 +37,7 @@ public class MembershipPaymentServiceTest {
 
         //Then
         then(membershipService).should().activateMembership();
+        then(notificationService).should().sendMessage(any());
     }
 
     @Test
@@ -46,5 +51,6 @@ public class MembershipPaymentServiceTest {
 
         //Then
         then(membershipService).should().upgradeMembership();
+        then(notificationService).should().sendMessage(any());
     }
 }

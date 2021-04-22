@@ -11,7 +11,7 @@ public class RuleEngineApplication {
 
     public static void main(String[] args) {
         //Input for the services
-        Product product = new Product("Learn to Ski", ProductType.VIDEO);
+        Product product = new Product("Learn to Ski", ProductType.UPGRADE_MEMBERSHIP);
 
         //Create different payment for different products
         PaymentService payment = new PaymentFactory().createPayment(product);
