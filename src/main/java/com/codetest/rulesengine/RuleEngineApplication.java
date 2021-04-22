@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class RuleEngineApplication {
 
     public static void main(String[] args) {
-        Product product = new Product("Membership", ProductType.BOOK);
+        Product product = new Product("Learn to Ski", ProductType.VIDEO);
 
         PaymentService payment = new PaymentFactory().createPayment(product);
         payment.completePayment(product);

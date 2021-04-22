@@ -14,6 +14,7 @@ public class MembershipPaymentService implements PaymentService {
     @Override
     public void completePayment(Product product) {
         System.out.printf("Request payment for "+ product.getProductType() + "\n");
+
         if(product.getProductType().equals(ProductType.ACTIVE_MEMBERSHIP)) {
             membershipService.activateMembership();
         }else {

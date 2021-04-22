@@ -18,6 +18,7 @@ public class PhysicalPaymentService implements PaymentService {
         System.out.printf("Request payment for "+ product.getProductType() + "\n");
         packingService.createPackingSlip("Delivery");
         commissionPayment.generateCommissionPayment();
+
         if(product.getProductType().equals(ProductType.BOOK)) {
             packingService.createPackingSlip("Royalty");
         }
