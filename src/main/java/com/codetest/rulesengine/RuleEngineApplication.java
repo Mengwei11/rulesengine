@@ -10,8 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class RuleEngineApplication {
 
     public static void main(String[] args) {
+        //Input for the services
         Product product = new Product("Learn to Ski", ProductType.VIDEO);
 
+        //Create different payment for different products
         PaymentService payment = new PaymentFactory().createPayment(product);
         payment.completePayment(product);
     }
