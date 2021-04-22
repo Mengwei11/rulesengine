@@ -27,4 +27,11 @@ Due to the time limit, I didn't implemet a RESTful endpoint to trigger the appli
 <img width="779" alt="Screenshot 2021-04-22 at 19 07 21" src="https://user-images.githubusercontent.com/17132725/115755807-0771f080-a39e-11eb-8965-2859c9ddffe9.png">
 3. If you would like to try out different product, just change the initilization of the Product object inside main method. 
 
+# What to improve
+There are some places where can be better.
+1. The way to initilize the payment service could be more elegent. I didn't come out a better solution in 2 hours.I will think about this later and hopefuly i can improve this more.
+2. Missing user friendly interface
+3. Didn't implement the real operations for packing or membership activation. etc. 
+
+
 Thanks for reading. :)
