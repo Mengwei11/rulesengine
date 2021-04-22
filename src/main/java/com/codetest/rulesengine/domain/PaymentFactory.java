@@ -12,6 +12,13 @@ import com.codetest.rulesengine.domain.product.Product;
 
 public class PaymentFactory {
 
+    /*
+     Reason for these ugly new statement is because the entrance of the service is in Application file,
+      where I don't want to have the services to be initialized
+
+      TODO could have more elegant way to use this factory
+     */
+
     public PaymentService createPayment(Product product) {
         switch (product.getProductType()) {
             case PHYSICAL:
