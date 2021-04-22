@@ -1,19 +1,19 @@
 package com.codetest.rulesengine;
 
 import com.codetest.rulesengine.domain.PaymentFactory;
-import com.codetest.rulesengine.domain.Product;
-import com.codetest.rulesengine.domain.ProductType;
-import com.codetest.rulesengine.domain.payment.Payment;
+import com.codetest.rulesengine.domain.payment.PaymentService;
+import com.codetest.rulesengine.domain.product.Product;
+import com.codetest.rulesengine.domain.product.ProductType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class RuleEngineApplication {
 
     public static void main(String[] args) {
-        Product product = new Product("Membership", ProductType.ACTIVE_MEMBERSHIP);
+        Product product = new Product("Membership", ProductType.BOOK);
 
-        Payment payment = new PaymentFactory().createPayment(product);
-        payment.completePayment();
+        PaymentService payment = new PaymentFactory().createPayment(product);
+        payment.completePayment(product);
     }
 }
 

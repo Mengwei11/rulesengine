@@ -1,4 +1,4 @@
-package com.codetest.rulesengine.domain;
+package com.codetest.rulesengine.domain.product;
 
 public enum ProductType {
     BOOK,

@@ -1,23 +1,21 @@
 package com.codetest.rulesengine.application.payment;
 
-import com.codetest.rulesengine.domain.Product;
 import com.codetest.rulesengine.domain.packing.PackingService;
-import com.codetest.rulesengine.domain.payment.Payment;
+import com.codetest.rulesengine.domain.payment.PaymentService;
+import com.codetest.rulesengine.domain.product.Product;
+import lombok.RequiredArgsConstructor;
 
-public class VideoPaymentService extends Payment {
+@RequiredArgsConstructor
+public class VideoPaymentService implements PaymentService {
 
     private final PackingService packingService;
 
-    public VideoPaymentService(Product product, PackingService packingService) {
-        super(product);
-        System.out.printf("Buying Video item \n");
-        this.packingService = packingService;
-    }
-
     @Override
-    public void completePayment() {
+    public void completePayment(Product product) {
+        System.out.printf("Request payment for "+ product.getProductType() + "\n");
+
         packingService.createPackingSlip("Delivery");
-        if(this.getProduct().getProductName().equals("Learn to Ski")) {
+        if(product.getProductName().equals("Learn to Ski")) {
             packingService.addItemToPackingSlip("First Aid");
         }
     }

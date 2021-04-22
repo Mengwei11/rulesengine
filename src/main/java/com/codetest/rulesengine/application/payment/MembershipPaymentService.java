@@ -1,23 +1,20 @@
 package com.codetest.rulesengine.application.payment;
 
-import com.codetest.rulesengine.domain.Product;
-import com.codetest.rulesengine.domain.ProductType;
 import com.codetest.rulesengine.domain.membership.MembershipService;
-import com.codetest.rulesengine.domain.payment.Payment;
+import com.codetest.rulesengine.domain.payment.PaymentService;
+import com.codetest.rulesengine.domain.product.Product;
+import com.codetest.rulesengine.domain.product.ProductType;
+import lombok.RequiredArgsConstructor;
 
-public class MembershipPaymentService extends Payment {
+@RequiredArgsConstructor
+public class MembershipPaymentService implements PaymentService {
 
     private final MembershipService membershipService;
 
-    public MembershipPaymentService(Product product, MembershipService membershipService) {
-        super(product);
-        this.membershipService = membershipService;
-        System.out.printf("Request for "+ product.getProductType() + " Membership  \n");
-    }
-
     @Override
-    public void completePayment() {
-        if(this.getProduct().getProductType().equals(ProductType.ACTIVE_MEMBERSHIP)) {
+    public void completePayment(Product product) {
+        System.out.printf("Request payment for "+ product.getProductType() + "\n");
+        if(product.getProductType().equals(ProductType.ACTIVE_MEMBERSHIP)) {
             membershipService.activateMembership();
         }else {
             membershipService.upgradeMembership();
